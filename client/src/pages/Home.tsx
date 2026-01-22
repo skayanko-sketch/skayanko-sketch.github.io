@@ -16,7 +16,8 @@ import {
   CheckCircle2, 
   ArrowRight,
   ChevronDown,
-  Mail
+  Mail,
+  Phone
 } from "lucide-react";
 
 const fadeInUp = {
