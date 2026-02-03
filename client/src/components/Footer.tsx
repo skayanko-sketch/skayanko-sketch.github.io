@@ -36,6 +36,7 @@ export function Footer() {
               <li><a href="#about" className="hover:text-primary transition-colors">À propos</a></li>
               <li><a href="#experience" className="hover:text-primary transition-colors">Expérience</a></li>
               <li><a href="#education" className="hover:text-primary transition-colors">Formation</a></li>
+              <li><a href="#certifications" className="hover:text-primary transition-colors">Certifications</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -50,14 +51,6 @@ export function Footer() {
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
-              >
-                <Github className="w-5 h-5" />
               </a>
             </div>
           </div>

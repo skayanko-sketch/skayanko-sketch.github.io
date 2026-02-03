@@ -16,7 +16,9 @@ import {
   ArrowRight,
   ChevronDown,
   Mail,
-  Phone
+  Phone,
+  Award,
+  ExternalLink
 } from "lucide-react";
 
 const fadeInUp = {
@@ -108,11 +110,11 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -20, 0] }} 
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-10 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-700 shadow-xl z-20"
+                className="absolute top-0 right-6 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-700 shadow-xl z-20"
               >
                 <Building2 className="w-8 h-8 text-blue-400 mb-2" />
-                <div className="text-sm font-semibold text-white">Immobilier Durable</div>
-                <div className="text-xs text-slate-300">Gestion de projets</div>
+                <div className="text-sm font-semibold text-white">Civil Engineer</div>
+                <div className="text-xs text-slate-300">Génie Civil-BTP</div>
               </motion.div>
               
               <motion.div 
@@ -121,8 +123,8 @@ export default function Home() {
                 className="absolute bottom-10 left-0 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-700 shadow-xl z-20"
               >
                 <HardHat className="w-8 h-8 text-indigo-400 mb-2" />
-                <div className="text-sm font-semibold text-white">Génie Civil</div>
-                <div className="text-xs text-slate-300">Pilotage de Projets</div>
+                <div className="text-sm font-semibold text-white">Project Manager Officer</div>
+                <div className="text-xs text-slate-300">Manager de Portefeuille de Projets</div>
               </motion.div>
 
               {/* Main image placeholder - Using unsplash as placeholder for professional headshot */}
@@ -281,19 +283,19 @@ export default function Home() {
               school: "CESI LYON",
               year: "2024–2025",
               degree: "Mastère Spécialisé Manager de Portefeuille de Projets - Stratégie",
-              icon: <Briefcase className="w-8 h-8 text-primary" />
+              image: "/cesi.jpeg"
             },
             {
               school: "INSA LYON",
               year: "2023–2024",
               degree: "Ingénieur Génie Civil et Urbanisme (Erasmus+)",
-              icon: <GraduationCap className="w-8 h-8 text-primary" />
+              image: "/insa.jpeg"
             },
             {
               school: "INSTITUT INTERNATIONAL 2iE",
               year: "2019–2024",
               degree: "Ingénieur Génie Civil BTP (Bourse d'Excellence)",
-              icon: <Building2 className="w-8 h-8 text-primary" />
+              image: "/2ie.jpeg"
             }
           ].map((edu, index) => (
             <motion.div
@@ -305,8 +307,8 @@ export default function Home() {
             >
               <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 border-border/50">
                 <CardHeader>
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    {edu.icon}
+                  <div className="w-full h-20 bg-white rounded-xl flex items-center justify-center mb-4 p-4">
+                    <img src={edu.image} alt={edu.school} className="max-w-full max-h-full object-contain" />
                   </div>
                   <CardTitle className="text-xl font-bold">{edu.school}</CardTitle>
                 </CardHeader>
@@ -320,8 +322,70 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* CERTIFICATIONS SECTION */}
+      <Section id="certifications" title="Certifications" subtitle="Formation continue et développement professionnel" dark>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {[
+            {
+              title: "McKinsey Forward Program",
+              year: "2025",
+              organization: "McKinsey & Company",
+              description: "Développement de soft skills : adaptabilité, communication, relationnel client, problem-solving et travail en environnement digital.",
+              link: "https://www.credly.com/badges/d766dbd4-3c9f-45e1-acf9-24c50d4edcfb/linked_in_profile"
+            },
+            {
+              title: "PRINCE2® Foundation - Project Management",
+              year: "2025",
+              status: "En cours",
+              organization: "AXELOS",
+              description: "Méthodologie de gestion de projet, gouvernance, gestion des risques, pilotage par les livrables.",
+              link: "https://lms.skills4all.com/mod/linkedincert/verify_certificate.php?code=bDtRZLa3Ae"
+            }
+          ].map((cert, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="h-full"
+            >
+              <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 border-border/50 bg-card flex flex-col">
+                <CardHeader>
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Award className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="flex gap-2">
+                      <Badge variant="secondary">{cert.year}</Badge>
+                      {cert.status && <Badge variant="outline" className="border-primary/50 text-primary">{cert.status}</Badge>}
+                    </div>
+                  </div>
+                  <CardTitle className="text-xl font-bold">{cert.title}</CardTitle>
+                  <p className="text-sm text-muted-foreground font-medium">{cert.organization}</p>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-between space-y-4">
+                  <p className="text-muted-foreground leading-relaxed">{cert.description}</p>
+                  {cert.link && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full gap-2 mt-auto"
+                      onClick={() => window.open(cert.link, '_blank')}
+                    >
+                      Voir le certificat
+                      <ExternalLink className="w-4 h-4" />
+                    </Button>
+                  )}
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
       {/* SKILLS SECTION */}
-      <Section id="skills" title="Compétences" subtitle="Expertise technique et outils" dark>
+      <Section id="skills" title="Compétences" subtitle="Expertise technique et outils">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
