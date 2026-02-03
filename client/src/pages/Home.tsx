@@ -61,7 +61,7 @@ export default function Home() {
               </Badge>
             </motion.div>
             
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-display font-bold leading-tight">
+            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
               SOMA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Kayanko</span>
             </motion.h1>
             
@@ -108,21 +108,21 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -20, 0] }} 
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-10 bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl z-20"
+                className="absolute top-0 right-10 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-700 shadow-xl z-20"
               >
                 <Building2 className="w-8 h-8 text-blue-400 mb-2" />
-                <div className="text-sm font-semibold">Immobilier Durable</div>
-                <div className="text-xs text-slate-400">Expertise RE2020</div>
+                <div className="text-sm font-semibold text-white">Immobilier Durable</div>
+                <div className="text-xs text-slate-300">Gestion de projets</div>
               </motion.div>
               
               <motion.div 
                 animate={{ y: [0, 20, 0] }} 
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-10 left-0 bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl z-20"
+                className="absolute bottom-10 left-0 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-700 shadow-xl z-20"
               >
                 <HardHat className="w-8 h-8 text-indigo-400 mb-2" />
-                <div className="text-sm font-semibold">Génie Civil</div>
-                <div className="text-xs text-slate-400">Pilotage de Projets</div>
+                <div className="text-sm font-semibold text-white">Génie Civil</div>
+                <div className="text-xs text-slate-300">Pilotage de Projets</div>
               </motion.div>
 
               {/* Main image placeholder - Using unsplash as placeholder for professional headshot */}
