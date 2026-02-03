@@ -75,7 +75,7 @@ export function Navbar() {
             variant={scrolled ? "default" : "secondary"}
             size="sm" 
             className="gap-2 font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
-            onClick={() => window.open('/cv.pdf', '_blank')}
+            onClick={() => window.open('https://drive.google.com/file/d/15tKDOWyMl9o5DxE83AoE8weh471ydkZv/view?usp=drive_link', '_blank')}
           >
             <Download className="w-4 h-4" />
             CV
@@ -111,7 +111,7 @@ export function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <Button className="w-full gap-2 mt-4" onClick={() => window.open('/cv.pdf', '_blank')}>
+              <Button className="w-full gap-2 mt-4" onClick={() => window.open('https://drive.google.com/file/d/15tKDOWyMl9o5DxE83AoE8weh471ydkZv/view?usp=drive_link', '_blank')}>
                 <Download className="w-4 h-4" />
                 Télécharger CV
               </Button>

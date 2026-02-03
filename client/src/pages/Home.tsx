@@ -87,7 +87,7 @@ export default function Home() {
                 variant="outline" 
                 size="lg" 
                 className="text-lg px-8 py-6 rounded-full border-white/20 text-white hover:bg-white/10 bg-transparent backdrop-blur-sm"
-                onClick={() => window.open('https://drive.google.com/file/d/1ABC123xyz/view?usp=sharing', '_blank')}
+                onClick={() => window.open('https://drive.google.com/file/d/15tKDOWyMl9o5DxE83AoE8weh471ydkZv/view?usp=drive_link', '_blank')}
               >
                 Télécharger CV
               </Button>
