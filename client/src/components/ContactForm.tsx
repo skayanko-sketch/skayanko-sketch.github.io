@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertMessageSchema, type InsertMessage } from "@shared/schema";
+import { contactSchema, type ContactMessage } from "@/lib/schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,8 +12,8 @@ import { motion } from "framer-motion";
 export function ContactForm() {
   const { mutate, isPending } = useSubmitContact();
   
-  const form = useForm<InsertMessage>({
-    resolver: zodResolver(insertMessageSchema),
+  const form = useForm<ContactMessage>({
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -21,7 +21,7 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(data: InsertMessage) {
+  function onSubmit(data: ContactMessage) {
     mutate(data, {
       onSuccess: () => {
         form.reset();
@@ -90,12 +90,12 @@ export function ContactForm() {
             {isPending ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Envoi en cours...
+                Ouverture du client email...
               </>
             ) : (
               <>
                 <Send className="mr-2 h-4 w-4" />
-                Envoyer le message
+                Ouvrir le client email
               </>
             )}
           </Button>

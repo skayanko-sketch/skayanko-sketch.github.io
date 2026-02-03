@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Section } from "@/components/Section";
-import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -88,7 +87,7 @@ export default function Home() {
                 variant="outline" 
                 size="lg" 
                 className="text-lg px-8 py-6 rounded-full border-white/20 text-white hover:bg-white/10 bg-transparent backdrop-blur-sm"
-                onClick={() => window.open('/cv.pdf', '_blank')}
+                onClick={() => window.open('https://drive.google.com/file/d/1ABC123xyz/view?usp=sharing', '_blank')}
               >
                 Télécharger CV
               </Button>
@@ -368,49 +367,45 @@ export default function Home() {
 
       {/* CONTACT SECTION */}
       <Section id="contact" title="Contact" subtitle="Discutons de votre prochain projet">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h3 className="text-3xl font-bold font-display leading-tight">
-              Prêt à apporter de la valeur à votre entreprise ?
-            </h3>
-            <p className="text-lg text-muted-foreground">
-              Je suis actuellement à la recherche de nouvelles opportunités en tant que Consultant ou Chef de Projet. N'hésitez pas à me contacter pour échanger sur vos besoins.
-            </p>
+        <div className="max-w-2xl mx-auto text-center space-y-8">
+          <h3 className="text-3xl font-bold font-display leading-tight">
+            Prêt à apporter de la valeur à votre entreprise ?
+          </h3>
+          <p className="text-lg text-muted-foreground">
+            Je suis actuellement à la recherche de nouvelles opportunités en tant que Consultant ou Chef de Projet. N'hésitez pas à me contacter pour échanger sur vos besoins.
+          </p>
+          
+          <div className="space-y-6">
+            <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <p className="text-sm text-muted-foreground">Email</p>
+                <a href="mailto:skayanko@gmail.com" className="font-semibold text-lg hover:text-primary transition-colors">skayanko@gmail.com</a>
+              </div>
+            </div>
             
-            <div className="space-y-6">
-              <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:skayanko@gmail.com" className="font-semibold text-lg hover:text-primary transition-colors">skayanko@gmail.com</a>
-                </div>
+            <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary">
+                <Phone className="w-6 h-6" />
               </div>
-              
-              <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Téléphone</p>
-                  <a href="tel:+33745539236" className="font-semibold text-lg hover:text-primary transition-colors">+33 7 45 53 92 36</a>
-                </div>
+              <div className="text-left">
+                <p className="text-sm text-muted-foreground">Téléphone</p>
+                <a href="tel:+33745539236" className="font-semibold text-lg hover:text-primary transition-colors">+33 7 45 53 92 36</a>
               </div>
-              
-              <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Localisation</p>
-                  <p className="font-semibold text-lg">Île-de-France</p>
-                </div>
+            </div>
+            
+            <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary">
+                <MapPin className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <p className="text-sm text-muted-foreground">Localisation</p>
+                <p className="font-semibold text-lg">Île-de-France</p>
               </div>
             </div>
           </div>
-          
-          <ContactForm />
         </div>
       </Section>
 

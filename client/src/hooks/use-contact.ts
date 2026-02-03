@@ -1,36 +1,32 @@
 import { useMutation } from "@tanstack/react-query";
-import { api } from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
-import type { InsertMessage } from "@shared/schema";
+import type { ContactMessage } from "@/lib/schema";
 
 export function useSubmitContact() {
   const { toast } = useToast();
   
   return useMutation({
-    mutationFn: async (data: InsertMessage) => {
-      const res = await fetch(api.contact.submit.path, {
-        method: api.contact.submit.method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+    mutationFn: async (data: ContactMessage) => {
+      // Create mailto link with the form data
+      const subject = encodeURIComponent(`Message de ${data.name}`);
+      const body = encodeURIComponent(`Nom: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+      const mailtoLink = `mailto:contact@example.com?subject=${subject}&body=${body}`;
       
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || 'Failed to send message');
-      }
+      // Open the user's default email client
+      window.location.href = mailtoLink;
       
-      return api.contact.submit.responses[201].parse(await res.json());
+      return { success: true };
     },
     onSuccess: () => {
       toast({
-        title: "Message envoyé !",
-        description: "Merci de m'avoir contacté. Je vous répondrai dans les plus brefs délais.",
+        title: "Client email ouvert !",
+        description: "Votre client email s'est ouvert avec le message prérempli. Vous pouvez maintenant l'envoyer.",
       });
     },
     onError: (error: Error) => {
       toast({
         title: "Erreur",
-        description: error.message || "Une erreur est survenue lors de l'envoi du message.",
+        description: "Une erreur est survenue lors de l'ouverture du client email.",
         variant: "destructive",
       });
     },
