@@ -129,7 +129,7 @@ export default function Home() {
               {/* professional man in suit corporate portrait */}
               <img 
                // src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" 
-               src="kayanko.jpg" 
+               src="/kayanko.jpg" 
                alt="SOMA Kayanko" 
                 className="rounded-3xl object-cover w-full h-full shadow-2xl border-2 border-white/10 relative z-10"
               />
